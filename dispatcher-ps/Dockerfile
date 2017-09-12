@@ -27,7 +27,7 @@ RUN apt-get install -y happycoders-libsocket libc6
 #ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_10/file.res/dispatcher-apache2.4-linux-x86-64-ssl10-4.1.9.tar.gz /aem/dispatcher/module/
 # Install dispatcher mod - Linux x86 64bit OpenSSL 1.0
 #ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_8/file.res/dispatcher-apache2.4-linux-x86-64-4.1.9.tar.gz /aem/dispatcher/module/
-ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_24/file.res/dispatcher-apache2.2-linux-x86-64-4.2.2.tar.gz /aem/dispatcher/module/
+ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_8/file.res/dispatcher-apache2.4-linux-x86-64-4.2.2.tar.gz /aem/dispatcher/module/
 WORKDIR /aem/dispatcher/module/
 RUN tar -zxvf *.gz
 RUN chown -R www-data:www-data *
@@ -52,4 +52,4 @@ RUN a2ensite aemsite
 
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
-EXPOSE 80 443
+EXPOSE 80
