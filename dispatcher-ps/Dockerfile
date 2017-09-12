@@ -21,11 +21,13 @@ WORKDIR /aem/dispatcher/pagespeed/module
 RUN dpkg -i mod-pagespeed-*.deb
 RUN apt-get -y -f install
 
+RUN apt-get install -y happycoders-libsocket libc6
+
 # Install dispatcher mod - Linux x86 64bit OpenSSL 1.0
 #ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_10/file.res/dispatcher-apache2.4-linux-x86-64-ssl10-4.1.9.tar.gz /aem/dispatcher/module/
 # Install dispatcher mod - Linux x86 64bit OpenSSL 1.0
 #ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_8/file.res/dispatcher-apache2.4-linux-x86-64-4.1.9.tar.gz /aem/dispatcher/module/
-ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_10/file.res/dispatcher-apache2.4-linux-x86-64-4.1.11.tar.gz /aem/dispatcher/module/
+ADD https://www.adobeaemcloud.com/content/companies/public/adobe/dispatcher/dispatcher/_jcr_content/top/download_24/file.res/dispatcher-apache2.2-linux-x86-64-4.2.2.tar.gz /aem/dispatcher/module/
 WORKDIR /aem/dispatcher/module/
 RUN tar -zxvf *.gz
 RUN chown -R www-data:www-data *
@@ -35,6 +37,7 @@ COPY resources/dispatcher.any dispatcher.any
 WORKDIR /lib/x86_64-linux-gnu/
 RUN ln -s libssl.so.1.0.0 libssl.so.10
 RUN ln -s libcrypto.so.1.0.0 libcrypto.so.10
+#RUN ln -s /usr/lib/libsocket.so.0 libsocket.so.1
 
 #Copies required mods
 WORKDIR /etc/apache2/mods-available/
