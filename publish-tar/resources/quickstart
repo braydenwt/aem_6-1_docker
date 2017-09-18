@@ -33,7 +33,7 @@ CQ_NOFORK='true'
 #CQ_FORKARGS=''
 
 # runmode(s)
-CQ_RUNMODE='publish,nosamplecontent'
+CQ_RUNMODE='publish'
 
 # defines the path under which the quickstart work folder is located
 #CQ_BASEFOLDER=''

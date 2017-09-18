@@ -13,7 +13,7 @@ ADD resources/packagelist.txt /aem/packagelist.txt
 
 # Extracts AEM
 WORKDIR /aem
-RUN java -Djava.awt.headless=true -XX:MaxPermSize=256m -Xmx1280m -jar cq-author-4502.jar -unpack -r nosamplecontent
+RUN java -Djava.awt.headless=true -XX:MaxPermSize=256m -Xmx1280m -jar cq-author-4502.jar -unpack
 
 # Add customised log file, to print the logging to standard out.
 ADD resources/org.apache.sling.commons.log.LogManager.config /aem/crx-quickstart/install/org.apache.sling.commons.log.LogManager.config
